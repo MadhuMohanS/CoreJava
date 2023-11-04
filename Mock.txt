@@ -1,0 +1,218 @@
+1.java :it is an object oriented programming language, built by sun micro system.it is widely used to build web based Application.
+  
+  Javac:javac is present in jdk.it is used to compile the source code, it is responsible for conversion from source code to byte code.
+
+2.jdk:it stands for java development kit.it is used to build the application, it contains jre+tools
+
+  JRE:it stands for java runtime environment.it is used to run and execute the java program
+
+  JVM:it stands for java virtual machine, it is used to execute the program.the jvm starts execution from main method
+
+3.  .java file                                     .class file
+   *it is a source code                           *it is a byte code
+
+   *it is written by developer                    *it is produced by javac
+
+   *it is in human readable format                *it is in machine readable format(0 1)
+
+   *it is taken as input for jre                  *it is taken as input for jvm
+
+   *it cannot run on any environment               *it can run on any environment
+
+4.notepad++
+  visual studio code
+  netbeans
+  eclipse
+  Anaconda
+
+5.variable:it is a named container used to store the address of the memory location
+
+  2types:class level,method level
+
+  class level:static variable->the variable declared using static key word,it creates only one copy.
+
+  example:class ex{
+  static int age=12;
+  public static void main(String args[]){
+  System.out.println(age);
+  }
+  }
+
+  non static variable:the variable declared without using static key word,it creates multiple copies.we use constructor to initialize
+  
+  example:class Ex{
+  int age=13;
+  ex(int age){
+  this.age=age;
+  System.out.println(age);
+   }
+   }
+
+  
+  method level:local variable->the variable declared inside a method is called local variable
+
+  example:void info(){
+   String name="xworkz";
+   System.out.println(name);
+   }
+   
+   parameter:the variable declared inside the parenthisis.
+
+   example:
+   void info(String name){
+   System.out.println(name);
+   }
+
+6.with the help of the object we can achieve inhertance,polymorphism,abstraction and encapsulation.in object oriented programming language we can create an object for any class with the help of that object we can access the variable ,methods of that class
+
+7.error:method main is already defined in class Xworkz
+
+8.data type:it represents the type of value what we have to store in the variable
+
+  types:1.primitive
+        2.non-primitive
+   
+   1.primitive:these are pre defined data types provided by the language(byte,char,long,short,int,float,double,boolean)
+    
+    ex:long int=9447653871l;
+
+   2.non-primitive:these data types are given by the developers(any class,String,array)
+
+   ex:class Xworkz{
+
+      }
+
+9.Dot. operator is used to acces the variable and methods in the program
+
+   example:class Ex{
+  static int age=12;
+  public static void main(String args[]){
+  System.out.println(Ex.age);
+  }
+  }
+
+10.java features:
+    *speed
+    *multitasking
+    *platform independent
+    *security
+    *exception handlind
+
+11.array:it is a collection of similar elements, where array elements can be accessed with the help of index
+   
+   example:
+   class ArrayEx{
+   public static void main(String args[]){
+   String names[]={"harish","girish","praveen","mahesh"};
+   for(int index=0;index<names.length;index++){
+    System.out.println(names[index]);
+   }
+
+   }
+   }
+
+12.class:it is a blueprint which helps in creation of object
+   example:class Animal{
+
+   }
+
+    object:it is an instance of a class,it contains states and behaviours
+
+    class Dog{
+    public static void main(String args[]){
+     Animal animal=new Animal();
+    }
+    }
+
+13.Keywords:it is reserved words provided by the programming language
+
+    null,for,while,do,class,return,this,true,false,if
+
+   null:String name=null;
+   
+   for:for(int index=0;index<names.length;index++){
+    System.out.println(names[index]);
+   }
+
+   do:int i=0;
+    do{
+   System.out.println(i);
+   i++;
+   }while(i<10);
+
+   while:int i=0;
+    while(i<10){
+   System.out.println(i);
+   i++;
+   }
+   
+   class:class Animal{
+
+   }
+
+   return:return 0;
+
+   this:class Ex{
+  int age=13;
+  ex(int age){
+  this.age=age;
+  System.out.println(age);
+   }
+   }
+
+   true:boolean value=true;
+   
+   false:boolean value=false;
+
+   if:if(age<10){
+   System.out.println("he is child");
+   }
+
+14.constructor:it is a special method, it is used to initialize the instance variable.it has same name as the class name and it doesn't have the return type
+
+   types:
+   default constructor
+   parameterized constructor
+
+   default constructor:the constructor which has no parameters
+   parameterized constructor:the constructor which has parameters
+
+16.Program:
+
+  class FindLength{
+  public static void main(String args[]){
+  int no[]={12,3,2,45,6,7,6};
+  System.out.println("length of the array is present int he given list:"+no.length);
+  }
+  }
+
+17.method:it is block of code which executes only when we invoke it
+
+   method overloading:the method has same name but differs in no of parameters and in datatypes
+
+   example:
+   class Example{
+   public static void main(String args[]){
+   void info(String name){
+   System.out.println("name:"+name);
+   }
+    
+   void info(String name,int age){
+   System.out.println("name:"+name);
+   System.out.println("age:"+age);
+   }
+
+   info("harish");
+   info("girish",23);
+   }
+   }
+
+15.main method is static because the jvm executes only static method
+
+
+    method types:
+
+   Local:the method decalred nside a class
+
+   instance:the method declared outside the class
+       
