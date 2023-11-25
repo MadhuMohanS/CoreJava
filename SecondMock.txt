@@ -1,0 +1,78 @@
+1.
+class FindPrime{
+public static void main(String args[]){
+int n=9;
+boolean flag=false;
+for(int i=2;i<n;i++){
+if(n%i==0){
+flag=true;
+}
+}
+if(flag==true){
+System.out.println(n+" is not a prime number");
+}else{
+System.out.println(n+" is a prime number");
+}
+}
+}
+
+2.
+class Reverse{
+public static void main(String args[]){
+String name="XworkZ",temp="";
+int n=name.length();
+for(int i=name.length()-1;i>=0;i--){
+temp.charAt(i)=name.charAt(i);
+}
+System.out.pritnln("reverse string is:"+temp);
+}
+}
+
+
+3.
+class FontChange{
+public static void main(String args[]){
+String name="XworkZ Odc",temp="";
+for(int i=0;i<name.length().i++){
+if(name.charAt(i)==upper(name.charAt(i))){
+Lower(name.charAt(i));
+}
+else{
+Upper(name.charAt(i));
+}
+}
+System.out.println("reverse String is:"+name);
+}
+}
+
+4.
+class Pattern{
+public static void main(String args[]){
+int n=5,i,j;
+for(i=1;i<=n;i++){
+for(j=0;j<i;j++){
+System.out.print("*");
+}
+System.out.println();
+}
+for(i=n;i>=1;i--){
+for(j=0;j<i;j++){
+System.out.print("*");
+}
+System.out.println();
+}
+}
+}
+
+5.
+class Trianlge{
+public static void main(String args[]){
+int n=6;
+for(int i=1;i<=7;i++){
+for(int j=i;j<=n-i;j++){
+System.out.print(j);
+}
+System.out.println();
+}
+}
+}
