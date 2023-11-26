@@ -6,7 +6,7 @@ class KeyChain{
 	String type;
 	
 	KeyChain(){
-		super();
+		this(20,"red","heart","dil","BikeKeychain");
 	}
 	KeyChain(double cost){
 		this.cost=cost;

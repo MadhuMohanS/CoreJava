@@ -6,7 +6,7 @@ class Bracelet{
 	String type;
 	
 	Bracelet(){
-		super();
+		this(200,"black","Round","Box","silver");
 	}
 	Bracelet(double cost){
 		this.cost=cost;

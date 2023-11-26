@@ -6,7 +6,7 @@ class Carrom{
 	String typeOfCoins;
 	
 	Carrom(){
-		super();
+		this("Pauper",1000,"Boxer","Wooden","plastic");
 	}
 	
 	Carrom(String game){

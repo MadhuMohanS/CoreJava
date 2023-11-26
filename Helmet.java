@@ -6,7 +6,7 @@ class Helmet{
 	double cost;
 	
 	Helmet(){
-		super();
+		this("Royal & field","blue","fiber","bike",1500.0);
 	}
 	Helmet(String brand){
 		System.out.println("Helmet brand:"+brand);

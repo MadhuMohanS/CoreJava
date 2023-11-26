@@ -6,7 +6,7 @@ class Printer{
 	String connection;
 	
 	Printer(){
-		super();
+		this("Laser","clm",100,"Lenovo","Wired");
 		System.out.println("invoking no argument constructor with in same class");
 	}
 	Printer(String type){
