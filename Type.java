@@ -1,0 +1,3 @@
+enum Type{
+	ANDROID,WEB,SECURITY;
+}
