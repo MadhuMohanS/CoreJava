@@ -2,9 +2,9 @@ package com.xworkz.sorting.comparatorprograms;
 
 import java.util.Comparator;
 
-public class SpeakerNameDesc implements Comparator<Speaker>{
+public class SpeakerNameDesc implements Comparator<SpeakerDto>{
 	@Override
-	public int compare(Speaker o1,Speaker o2) {
+	public int compare(SpeakerDto o1,SpeakerDto o2) {
 		return o2.getName().compareTo(o1.getName());
 	}
 

@@ -11,9 +11,9 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class Speaker {
+public class WaterPurifierDto {
 private String name;
-private double cost;
-private int sounds;
-private double frequency;
+private String type;
+private double capacity;
+private String owner;
 }

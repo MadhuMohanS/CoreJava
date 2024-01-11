@@ -11,7 +11,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Paper {
+public class PaperDto {
 private String name;
 private int started;
 private String channelName;

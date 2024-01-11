@@ -1,4 +1,6 @@
-package com.xworkz.sorting.comparatorprograms;
+package com.xworkz.sorting.comparatorprograms.sparkplug;
+
+import java.io.Serializable;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,9 +13,9 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class WaterPurifier {
+public class SparkPlugDto implements Serializable{
 private String name;
-private String type;
-private double capacity;
-private String owner;
+private double heatRange;
+private  String type;
+private String size;
 }
