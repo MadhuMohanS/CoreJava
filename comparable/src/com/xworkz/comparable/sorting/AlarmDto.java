@@ -11,13 +11,13 @@ import lombok.ToString;
 @Getter
 @ToString
 @AllArgsConstructor
-public class AlaramDto implements Serializable,Comparable<AlaramDto>{
+public class AlarmDto implements Serializable,Comparable<AlarmDto>{
 private String tune;
 private int timings;
 private double duration;
 private String type;
 @Override
-public int compareTo(AlaramDto o) {
+public int compareTo(AlarmDto o) {
 	// TODO Auto-generated method stub
 	return this.tune.compareTo(o.getTune());
 }

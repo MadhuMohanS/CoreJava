@@ -2,6 +2,7 @@ package com.xworkz.collection;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
 
 import com.xworkz.collection.collectionprograms.MovieCollection;
@@ -24,6 +25,7 @@ public static void main(String[] args) {
 //			System.out.println("contains:"+refString.contains("salaar"));
 //		}
 //	}
+	
 	
 	Collection<String> collection=new ArrayList<String>();
 	collection.add("RadioCity");
