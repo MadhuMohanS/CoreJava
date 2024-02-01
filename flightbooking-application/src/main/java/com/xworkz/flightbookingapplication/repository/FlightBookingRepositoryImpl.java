@@ -4,6 +4,7 @@ import java.sql.*;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 
 import com.xworkz.flightbookingapplication.dto.FlightBookingDto;
 
@@ -21,7 +22,7 @@ public class FlightBookingRepositoryImpl implements FlightBookingRepository{
 		String userName="root";
 		String password="Xworkzodc@123";
 		String insertQuery="insert into airticket"+
-		"(flight_name,source,destination,price) "+
+		"(flight_name,source,destination,price) "+ 
 				"values(?,?,?,?)";
 		
 		try {
@@ -36,6 +37,98 @@ public class FlightBookingRepositoryImpl implements FlightBookingRepository{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public void saveAll(List<FlightBookingDto> bookings) {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String jdbcUrl="jdbc:mysql://localhost:3306/ticketsystem";
+		String userName="root";
+		String password="Xworkzodc@123";
+		String insertQuery="insert into airticket"+
+		"(flight_name,source,destination,price) "+
+				"values(?,?,?,?)";
+		
+		try {
+			Connection connection=DriverManager.getConnection(jdbcUrl,userName,password);
+			PreparedStatement preparedStatement=connection.prepareStatement(insertQuery);
+			for(FlightBookingDto booking:bookings) {
+			preparedStatement.setString(1, booking.getFlightName());
+			preparedStatement.setString(2, booking.getSource());
+			preparedStatement.setString(3, booking.getDestination());
+			preparedStatement.setInt(4, booking.getPrice());
+			
+			preparedStatement.execute();
+			System.out.println("data inserted");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public void update(String flightName, String source, String destination) {
+		// TODO Auto-generated method stub
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String jdbcUrl="jdbc:mysql://localhost:3306/ticketsystem";
+		String userName="root";
+		String password="Xworkzodc@123";
+		
+		String updateQuery="update airticket set source=?,destination=? where flight_name=?";
+		
+		try {
+		Connection connection=	DriverManager.getConnection(jdbcUrl,userName,password);
+		PreparedStatement preparedStatement=connection.prepareStatement(updateQuery);
+		preparedStatement.setString(1,source);
+		preparedStatement.setString(2,destination);
+		preparedStatement.setString(3,flightName);
+		preparedStatement.executeUpdate();
+		System.out.println("data is successfully updated");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public void deleteByFlightName(String flightName) {
+		// TODO Auto-generated method stub
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		String jdbcUrl="jdbc:mysql://localhost:3306/ticketsystem";
+		String userName="root";
+		String password="Xworkzodc@123";
+		
+		String deleteQuery="delete from airticket where flight_name=?";
+		try {
+			Connection connection=DriverManager.getConnection(jdbcUrl,userName,password);
+			PreparedStatement preparedStatement=connection.prepareStatement(deleteQuery);
+			preparedStatement.setString(1, flightName);
+			preparedStatement.executeUpdate();
+			System.out.println("data deleted successfully");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 }
