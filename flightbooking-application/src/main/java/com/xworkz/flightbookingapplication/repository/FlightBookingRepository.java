@@ -9,4 +9,7 @@ public void saveFlightBookingDetails(FlightBookingDto booking);
 public void saveAll(List<FlightBookingDto> booking);
 public void update(String flightName,String source,String destination);
 public void deleteByFlightName(String flightName);
+public FlightBookingDto findByName(String flightName);
+public List<FlightBookingDto> findAll();
+
 }

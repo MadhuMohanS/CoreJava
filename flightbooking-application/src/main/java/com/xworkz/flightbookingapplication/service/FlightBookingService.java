@@ -9,4 +9,6 @@ public interface FlightBookingService {
 	void saveAll(List<FlightBookingDto> flight);
 	void update(String flightName,String source,String destination);
 	void delete(String flightName);
+	public FlightBookingDto findByName(String flightName);
+	public List<FlightBookingDto> findAll();
 }

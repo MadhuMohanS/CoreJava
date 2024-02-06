@@ -4,6 +4,7 @@ import java.sql.*;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.xworkz.flightbookingapplication.dto.FlightBookingDto;
@@ -129,6 +130,84 @@ public class FlightBookingRepositoryImpl implements FlightBookingRepository{
 			e.printStackTrace();
 		}
 		
+	}
+
+	@Override
+	public FlightBookingDto findByName(String flightName) {
+		// TODO Auto-generated method stub
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		String jdbcUrl="jdbc:mysql://localhost:3306/ticketsystem";
+		String userName="root";
+		String password="Xworkzodc@123";
+		
+		String selectQuery="select * from airticket where  flight_name=?";
+		FlightBookingDto booking=null;
+		
+	try {
+		Connection connection=	DriverManager.getConnection(jdbcUrl,userName,password);
+	PreparedStatement preparedStatement=connection.prepareStatement(selectQuery);
+	preparedStatement.setString(1, flightName);
+    ResultSet resultSet=preparedStatement.executeQuery();
+    if(resultSet.next()) {
+	System.out.println(resultSet.getString("source"));
+	System.out.println(resultSet.getString("destination"));
+	booking=new FlightBookingDto();
+	booking.setFlightName(resultSet.getString("flight_name"));
+	booking.setSource(resultSet.getString("source"));
+	booking.setDestination(resultSet.getString("destination"));
+	booking.setPrice(resultSet.getInt("price"));
+}
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+		
+	return booking;	
+	}
+
+	@Override
+	public List<FlightBookingDto> findAll() {
+		// TODO Auto-generated method stub
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		String jdbcUrl="jdbc:mysql://localhost:3306/ticketsystem";
+		String userName="root";
+		String password="Xworkzodc@123";
+		
+		String selectQuery="select * from airticket";
+		List<FlightBookingDto> bookings=new ArrayList<>();
+		
+	try {
+		Connection connection=DriverManager.getConnection(jdbcUrl,userName,password);
+		  PreparedStatement preparedStatement=connection.prepareStatement(selectQuery);
+		  ResultSet resultSet=preparedStatement.executeQuery();
+		  while(resultSet.next()) {
+			  System.out.println(resultSet.getString(2));
+			  System.out.println(resultSet.getString("source"));
+			  FlightBookingDto booking=new FlightBookingDto();
+			  booking.setFlightName(resultSet.getString("flight_name"));
+			  booking.setSource(resultSet.getString("source"));
+			  booking.setDestination(resultSet.getString("destination"));
+			  booking.setPrice(resultSet.getInt("price"));
+			  bookings.add(booking);
+		  }
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+		
+		return bookings;
 	}
 
 }

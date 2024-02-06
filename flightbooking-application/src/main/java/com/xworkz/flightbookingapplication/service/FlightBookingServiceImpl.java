@@ -9,7 +9,7 @@ import com.xworkz.flightbookingapplication.repository.FlightBookingRepositoryImp
 public class FlightBookingServiceImpl implements FlightBookingService{
 
 	FlightBookingRepository flightBookingRepository=new FlightBookingRepositoryImpl();
-	FlightBookingService flightBookingService=new FlightBookingServiceImpl();
+//	FlightBookingService flightBookingService=new FlightBookingServiceImpl();
 	@Override
 	public void save(FlightBookingDto flight) {
 		// TODO Auto-generated method stub
@@ -51,9 +51,26 @@ public class FlightBookingServiceImpl implements FlightBookingService{
 		if(flightName==null || flightName.isEmpty()) {
 			System.out.println("please enter valid flight Name");
 		}else {
-			flightBookingService.delete(flightName);
+			flightBookingRepository.deleteByFlightName(flightName);
 		}
 		
+	}
+	@Override
+	public FlightBookingDto findByName(String flightName) {
+		// TODO Auto-generated method stub
+		if(flightName==null) {
+			System.out.println("please enter valid flight name");
+		}else {
+			FlightBookingDto booking=flightBookingRepository.findByName(flightName);
+			return booking;
+		}
+		return null;
+	}
+	@Override
+	public List<FlightBookingDto> findAll() {
+		// TODO Auto-generated method stub
+		List<FlightBookingDto> bookings=flightBookingRepository.findAll();
+		return bookings;
 	}
 
 }

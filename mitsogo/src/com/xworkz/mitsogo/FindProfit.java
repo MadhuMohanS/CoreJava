@@ -33,6 +33,7 @@ public static void main(String[] args) {
 			else {
 				profit+=profitarr[i];
 //				System.out.println(profit+" hey");
+				
 			}
 		
 		}
