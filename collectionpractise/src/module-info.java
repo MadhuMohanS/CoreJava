@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * 
+ */
+module collectionpractise {
+	requires lombok;
+}
