@@ -105,6 +105,21 @@ public class MedicineBegin {
 		list.add(medinDto6);
 		list.add(medinDto5);
 		list.add(medinDto21);
+		list.add(medinDto7);
+		list.add(medinDto8);
+		list.add(medinDto9);
+		list.add(medinDto10);
+		list.add(medinDto11);
+		list.add(medinDto12);
+		list.add(medinDto13);
+		list.add(medinDto14);
+		list.add(medinDto15);
+		list.add(medinDto17);
+		list.add(medinDto18);
+		list.add(medinDto19);
+		list.add(medinDto20);
+		
+		
 
 		System.out.println("sort all medicine by company name");
 		Collections.sort(list);
@@ -154,17 +169,17 @@ public class MedicineBegin {
 		System.out.println("==============================================");
 		System.out.println("collect all manufacture date less than 30 days");
 
-		list.stream().filter(l -> l.getManfDate().isBefore(LocalDate.now())).forEach(l -> System.out.println(l));
+		list.stream().filter(l -> l.getManfDate().isBefore(LocalDate.now().plusDays(30))).forEach(l -> System.out.println(l));
 
 		System.out.println("==============================================");
 		System.out.println("collect all expiry date less than 30 days");
 
-		list.stream().filter(l -> l.getExpiryDate().isBefore(LocalDate.now())).forEach(l -> System.out.println(l));
+		list.stream().filter(l -> l.getExpiryDate().isBefore(LocalDate.now().plusDays(30))).forEach(l -> System.out.println(l));
 
 		System.out.println("==============================================");
 		System.out.println("collect all manufacture date greater than 30 days");
 
-		list.stream().filter(l -> l.getManfDate().isAfter(LocalDate.now())).forEach(l -> System.out.println(l));
+		list.stream().filter(l -> l.getManfDate().isAfter(LocalDate.now().minusDays(30))).forEach(l -> System.out.println(l));
 
 	}
 }
