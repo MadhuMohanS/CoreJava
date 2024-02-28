@@ -1,4 +1,4 @@
-package com.xworkz.nandish.comparable.set.setDTO;
+package com.xworkz.maprunner;
 
 import lombok.*;
 

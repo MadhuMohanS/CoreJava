@@ -1,6 +1,5 @@
-package com.xworkz.nandish.comparable.set.setRunner;
+package com.xworkz.maprunner;
 
-import com.xworkz.nandish.comparable.set.setDTO.AddressDTO;
 import com.xworkz.nandish.comparable.set.setDTO.PersonDTO;
 
 import java.util.*;
