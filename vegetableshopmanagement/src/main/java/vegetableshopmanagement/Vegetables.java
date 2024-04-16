@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -29,46 +30,67 @@ public Vegetables() {
 }
 
 @Override
-	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("runnng service method of vegetables");
 		double banCost=30;
 		double appCost=20;
 		double ornCost=25;
 		double grpCost=35;
+		double manCost=40;
+		double pinCost=29;
+		double pomCost=35;
+		double papCost=22;
+		double melonCost=22;
+		double berryCost=50;
 		int sum=0;
 		String name=req.getParameter("name");
-		resp.setContentType("text/plain");
-		Map<String, Integer> maps=new HashMap<String, Integer>();
-		Writer writer= resp.getWriter();
+		
+		Map<String, Integer> maps=new LinkedHashMap<>();
+		
 		String[] s=req.getParameterValues("check");
 		
 		List<String> items=new ArrayList<>();
 		for(int i=0;i<s.length;i++) {
 			items.add(s[i]);
 		}
-		String[] a=req.getParameterValues("select");
+		List<Integer> kgs=new ArrayList<Integer>();
+//		String[] a=req.getParameterValues("select");
+		 java.util.Enumeration<String> parameterNames = req.getParameterNames();
+
+	        // Iterate through parameter names
+	        while (parameterNames.hasMoreElements()) {
+	            String paramName = parameterNames.nextElement();
+	            // Check if parameter name corresponds to a select tag
+	            if (paramName.startsWith("select")) {
+	                // Retrieve selected values for this select tag
+	                String[] selectedValues = req.getParameterValues(paramName);
+	                // Process selected values
+	                if (selectedValues != null) {
+	                    for (String value : selectedValues) {
+	                    	if(!(value.equals("0"))) {
+	                        // Do something with each selected value
+	                    		kgs.add(Integer.parseInt(value));
+	                        System.out.println("Selected value from " + paramName + ": " + value);
+	                    	}
+	                    }
+	                } else {
+	                    // Handle case when no values are selected for this select tag
+	                    System.out.println("No values selected for " + paramName);
+	                }
+	            }
+	        }
 		
-		List<String> kgs=new ArrayList<String>();
-		for(int i=0;i<a.length;i++) {
-			kgs.add(a[i]);
-		}
+		
+
 		
 				if (s != null && s.length != 0) {
-		writer.write("You have selected the option is: ");
+		System.out.println("You have selected the option is: ");
 		for (int i = 0; i < s.length; i++) {
-			maps.put(s[i], Integer.parseInt(a[i]));
+			maps.put(s[i], kgs.get(i));
 	}
 		}
-				
-				
-//				maps.forEach((k,v)->{
-//					try {
-//						writer.write(k+" "+v);
-//					} catch (IOException e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-//					}
-//				});
+
+				maps.forEach((k,v)->System.out.println(k+":"+v));
 				
 				for(Map.Entry<String, Integer> map:maps.entrySet()) {
 					if(map.getKey().equals("Apple")) {
@@ -85,6 +107,24 @@ public Vegetables() {
 					}
 					if(map.getKey().equals("Grapes")) {
 						sum+=grpCost*map.getValue();
+					}
+					if(map.getKey().equals("Mango")) {
+						sum+=manCost*map.getValue();
+					}
+					if(map.getKey().equals("Pinapple")) {
+						sum+=pinCost*map.getValue();
+					}
+					if(map.getKey().equals("Pomegranate")) {
+						sum+=pomCost*map.getValue();
+					}
+					if(map.getKey().equals("Papaya")) {
+						sum+=papCost*map.getValue();
+					}
+					if(map.getKey().equals("Watermelon")) {
+						sum+=melonCost*map.getValue();
+					}
+					if(map.getKey().equals("Strawberry")) {
+						sum+=berryCost*map.getValue();
 					}
 				}
 				
@@ -108,7 +148,7 @@ public Vegetables() {
 
 			statement.setString(1, name);
             statement.setString(2, arrayToString(s));
-            statement.setString(3, arrayToString(a));
+//            statement.setString(3, arrayToString(a));
             statement.setInt(4, sum);
 
             // Execute the query
@@ -124,7 +164,8 @@ public Vegetables() {
 				
 				
 				
-
+				
+			        
 	    
 		
 		
@@ -135,17 +176,9 @@ public Vegetables() {
 		RequestDispatcher dispatcher=req.getRequestDispatcher("FinalResult.jsp");
 		req.setAttribute("nm", name);
 		req.setAttribute("map", maps);
-//		req.setAttribute("app", apple);
-//		req.setAttribute("ban", banana);
-//		req.setAttribute("banq", banCon);
-//		req.setAttribute("appq", appCon);
-//		req.setAttribute("grp", grape);
-//		req.setAttribute("grpq", grapCon);
-//		req.setAttribute("orn", orange);
-//		req.setAttribute("ornq", orangeCon);
 		req.setAttribute("bill", sum);
 		dispatcher.forward(req, resp);
-//		writer.write("Bill is:"+sum);
+
 		
 }
 private static String arrayToString(String[] array) {

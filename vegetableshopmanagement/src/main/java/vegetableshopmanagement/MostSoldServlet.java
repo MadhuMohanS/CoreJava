@@ -8,7 +8,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -38,23 +40,40 @@ public class MostSoldServlet extends HttpServlet{
 		}
 		
 //		finalList.forEach(l->System.out.println(l));
-		int max_count=0;
-		String maxFreq="";
+		Map<String, Integer> countItems=new HashMap<String, Integer>();
 		for(int i=0;i<finalList.size();i++) {
-			int count=0;
-			for(int j=0;j<finalList.size();j++) {
-				if(finalList.get(i).equals(finalList.get(j))) {
-					count++;
-				}
+			if(countItems.containsKey(finalList.get(i))) {
+				countItems.put(finalList.get(i), countItems.get(finalList.get(i))+1);
+			}else {
+				countItems.put(finalList.get(i), 1);
 			}
-			if(count>max_count) {
-				max_count=count;
-				maxFreq=finalList.get(i);
+			
+		}
+		
+		List<String> topItems=new ArrayList<String>();
+		for(Map.Entry<String, Integer> ref:countItems.entrySet()) {
+			if(ref.getValue()>5) {
+				topItems.add(ref.getKey());
 			}
 		}
+		
+//		int max_count=0;
+//		String maxFreq="";
+//		for(int i=0;i<finalList.size();i++) {
+//			int count=0;
+//			for(int j=0;j<finalList.size();j++) {
+//				if(finalList.get(i).equals(finalList.get(j))) {
+//					count++;
+//				}
+//			}
+//			if(count>max_count) {
+//				max_count=count;
+//				maxFreq=finalList.get(i);
+//			}
+//		}
 //		System.out.println("most sold item is:"+maxFreq);
 		RequestDispatcher dispatcher=req.getRequestDispatcher("MostSoldJsp.jsp");
-		req.setAttribute("maxFreq", maxFreq);
+		req.setAttribute("maxFreq", topItems);
 		dispatcher.forward(req, resp);
 		
 		
