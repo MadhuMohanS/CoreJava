@@ -15,6 +15,7 @@
       <h2 class="text-white ">Amar Fruits Shop</h2>
     </div>
   </nav>
+  <select name="sorting">
 <c:forEach var="entry" items="${maxFreq}">
       <div class="row mt-5 m-lg-5">
     <div class="col">

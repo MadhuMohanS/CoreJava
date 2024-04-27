@@ -2,6 +2,8 @@ package com.xworkz.equalscontract;
 
 import java.util.Objects;
 
+import com.mysql.cj.x.protobuf.MysqlxDatatypes.Scalar.String;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;

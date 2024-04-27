@@ -146,7 +146,7 @@ public class FlightBookingRepositoryImpl implements FlightBookingRepository{
 		String userName="root";
 		String password="Xworkzodc@123";
 		
-		String selectQuery="select * from airticket where  flight_name=?";
+		String selectQuery="select * from airticket where flight_name=?";
 		FlightBookingDto booking=null;
 		
 	try {

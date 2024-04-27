@@ -5,6 +5,8 @@ package com.xworkz.amartailors;
 import java.io.IOException;
 import java.util.Properties;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
@@ -24,7 +26,7 @@ public class ContactServlet extends HttpServlet {
 		System.out.println("running no arg constructor of contact servlet");
 	}
 
-    protected void service(HttpServletRequest request, HttpServletResponse response) {
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	
          
         String firstName = request.getParameter("firstName");
@@ -61,15 +63,20 @@ public class ContactServlet extends HttpServlet {
 				mimeMessage.setSubject(subject);
 				mimeMessage.setText("Name:"+firstName+" "+lastName+"\nEmail:"+email+"\nMobile:"+mobile+"\nMessage:"+text);
 				Transport.send(mimeMessage);
+				RequestDispatcher dispatcher=request.getRequestDispatcher("EmailSuccess.jsp");
+				request.setAttribute("fn", firstName);
+				request.setAttribute("ln", lastName);
+				dispatcher.forward(request, response);
+				 System.out.println("email sent successfully");
 				
 			} catch (Exception e) {
 				// TODO: handle exception
-				e.printStackTrace();
+				System.out.println("sorry their occured some problem");
+				RequestDispatcher dispatcher=request.getRequestDispatcher("EmailFailure.jsp");
+				request.setAttribute("fn", firstName);
+				request.setAttribute("ln", lastName);
+				dispatcher.forward(request, response);
 			}
-
-        // Email configuration
- System.out.println("email sent successfully");
-       
     }
 }
 

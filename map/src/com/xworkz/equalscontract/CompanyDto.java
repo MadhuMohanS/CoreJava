@@ -8,10 +8,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-
+import lombok.*;
 @Setter
 @Getter
-@AllArgsConstructor
+
 @NoArgsConstructor
 @ToString
 public class CompanyDto implements Serializable{
@@ -31,6 +31,37 @@ public boolean equals(Object obj) {
 	}
 	return false;
 	
+}
+
+public CompanyDto(String cName, String location, String ceo) {
+	super();
+	this.cName = cName;
+	this.location = location;
+	this.ceo = ceo;
+}
+
+public String getCName() {
+	return cName;
+}
+
+public void setCName(String cName) {
+	this.cName = cName;
+}
+
+public String getLocation() {
+	return location;
+}
+
+public void setLocation(String location) {
+	this.location = location;
+}
+
+public String getCeo() {
+	return ceo;
+}
+
+public void setCeo(String ceo) {
+	this.ceo = ceo;
 }
 
 @Override

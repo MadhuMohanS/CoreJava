@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * 
- */
-module map {
-	requires lombok;
-}

@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/User/Downloads/lombok-1.18.30.jar">
+	<classpathentry kind="lib" path="C:/Users/User/.m2/repository/com/mysql/mysql-connector-j/8.0.33/mysql-connector-j-8.0.33.jar" sourcepath="C:/Users/User/.m2/repository/com/mysql/mysql-connector-j/8.0.33/mysql-connector-j-8.0.33-sources.jar">
 		<attributes>
-			<attribute name="module" value="true"/>
+			<attribute name="javadoc_location" value="jar:file:/C:/Program%20Files/Java/jdk1.8.0_261/src.zip!/"/>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="com.mysql"/>
+			<attribute name="maven.artifactId" value="mysql-connector-j"/>
+			<attribute name="maven.version" value="8.0.33"/>
+			<attribute name="maven.scope" value="compile"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="C:/Users/User/Downloads/lombok.jar" sourcepath="C:/Program Files/Java/jdk1.8.0_261/src.zip"/>
+	<classpathentry kind="output" path="src"/>
 </classpath>

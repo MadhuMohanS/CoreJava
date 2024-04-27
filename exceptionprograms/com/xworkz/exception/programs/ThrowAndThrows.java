@@ -8,7 +8,7 @@ class NegativeRadiusException extends Exception{
 	
 	@Override
 	public String getMessage() {
-		return "Radius cannot be negative";
+		return "Radius cannnot be negative";
 	}
 }
 
@@ -21,13 +21,13 @@ public class ThrowAndThrows {
 		double result=Math.PI*r*r;
 		return result;
 	}
-public static int divide(int a,int b) throws ArithmeticException{
+public static int divide(int a,int b){
 	int result=a/b;
 	return result;
 }
 public static void main(String[] args) {
 	try {
-	divide(10, 0);
+	divide(10, 10);
 	}catch(ArithmeticException e) {
 		System.out.println(e);
 	}
