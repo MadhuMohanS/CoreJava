@@ -129,8 +129,6 @@ public class TeamRepositoryImpl implements TeamRepository{
 	TeamDto teamDto= (TeamDto) query.getSingleResult();
 	System.out.println("team name:"+teamDto.getName());
 	return teamDto;
-	
-		
 	} catch (Exception e) {
 		// TODO: handle exception
 		System.out.println("exception while getting record"+e);
@@ -235,8 +233,6 @@ return teamDtos;
 		for(Object column:columns) {
 			System.out.println(column);
 		}
-		
-			
 		} catch (Exception e) {
 			// TODO: handle exception
 		}finally {
